@@ -30,6 +30,19 @@
 /* 
   解法1：将后面元素的值覆盖前面的元素，将要删除的元素的 next 指向后面的后面的元素，这样就实现删除此元素了。 
  */
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} node
+ * @return {void} Do not return anything, modify node in-place instead.
+ */
+
 var deleteNode = function (node) {
   node.val = node.next.val;
   node.next = node.next.next;
