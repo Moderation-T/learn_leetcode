@@ -70,7 +70,7 @@ var fib = function (n) {
 };
 
 /**
- * 解法2 ：queue(队列) 算法
+ * 解法2 ：queue(队列) 算法 O(n)
  */
 
 //  队列
