@@ -68,8 +68,7 @@ MyQueue.prototype.push = function (x) {
 MyQueue.prototype.pop = function () {
   if (this.outStake.isEmpty()) {
     if (this.inStake.isEmpty()) return false;
-    const inStakeSize = this.inStake.size();
-    for (let i = 0; i < inStakeSize; i++) {
+    while (!this.inStake.isEmpty()) {
       this.outStake.push(this.inStake.pop());
     }
   }
@@ -83,8 +82,7 @@ MyQueue.prototype.pop = function () {
 MyQueue.prototype.peek = function () {
   if (this.outStake.isEmpty()) {
     if (this.inStake.isEmpty()) return false;
-    const inStakeSize = this.inStake.size();
-    for (let i = 0; i < inStakeSize; i++) {
+    while (!this.inStake.isEmpty()) {
       this.outStake.push(this.inStake.pop());
     }
   }
