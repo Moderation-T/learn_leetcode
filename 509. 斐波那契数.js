@@ -50,6 +50,10 @@ const fib = function (n) {
  * 解法2 ：普通算法 O(n)
  */
 
+/**
+ * @param {*} n
+ * @returns
+ */
 var fib = function (n) {
   let first = 0;
   let second = 1;
