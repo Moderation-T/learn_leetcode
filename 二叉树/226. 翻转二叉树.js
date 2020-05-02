@@ -36,6 +36,14 @@
  * }
  */
 
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+
 function Queue() {
   let items = [];
   this.push = function (item) {
@@ -44,14 +52,8 @@ function Queue() {
   this.pop = function () {
     return items.pop();
   };
-  this.top = function () {
-    return items[items.length - 1];
-  };
   this.isEmpty = function () {
     return items.length === 0;
-  };
-  this.size = function () {
-    return items.length;
   };
 }
 
@@ -71,18 +73,14 @@ var invertTree = function (root) {
     let left = node.left;
     let right = node.right;
 
+    node.left = right; // 交换位置
+    node.right = left; // 交换位置
+    // 如果不为空推入栈中
     if (right !== null) {
-      node.left = right; // 交换位置
       queue.push(right); // 推入栈中
-    } else {
-      node.left = null;
     }
-
     if (left !== null) {
-      node.right = left; // 交换位置
       queue.push(left); // 推入栈中
-    } else {
-      node.right = null;
     }
   }
 
