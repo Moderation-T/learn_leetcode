@@ -37,13 +37,9 @@
  */
 
 /**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
+ *解法1：运用队列进行层序遍历交换左右节点的位置
+ *
  */
-
 function Queue() {
   let items = [];
   this.push = function (item) {
@@ -73,16 +69,50 @@ var invertTree = function (root) {
     let left = node.left;
     let right = node.right;
 
-    node.left = right; // 交换位置
-    node.right = left; // 交换位置
+    // 交换位置
+    node.left = right;
+    node.right = left;
     // 如果不为空推入栈中
     if (right !== null) {
-      queue.push(right); // 推入栈中
+      queue.push(right);
     }
     if (left !== null) {
-      queue.push(left); // 推入栈中
+      queue.push(left);
     }
   }
+
+  return root;
+};
+
+/*
+  解法2：前序遍历递归的方法 中序后续的递归方法都一样
+*/
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+var invertTree = function (root) {
+  if (root === null) return root;
+
+  // 记录节点
+  let left = root.left;
+  let right = root.right;
+
+  // 交换位置
+  root.left = right;
+  root.right = left;
+
+  invertTree(left);
+  invertTree(right);
 
   return root;
 };
