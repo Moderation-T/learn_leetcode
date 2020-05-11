@@ -72,7 +72,7 @@ var invertTree = function (root) {
     // 交换位置
     node.left = right;
     node.right = left;
-    // 如果不为空推入栈中
+    // 如果不为空推入队列中
     if (right !== null) {
       queue.push(right);
     }
